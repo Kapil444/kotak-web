@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <style>
+        table {
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        td,
+        th {
+            border: 10px solid #ffffff;
+            text-align: left;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #F4F4DC;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #F4F4DC;
+        }
+
+        
+        progress::-webkit-progress-value {
+            background: blue;
+        }
+
+        progress::-webkit-progress-bar {
+            background: white;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <th style="text-align: center;padding: 10px;">Skill Sets</th>
+            <th style="text-align: center;padding: 10px">Technologies</th>
+
+        </tr>
+        <tr>
+            <td style="width:50%">
+                <div style="display: flex;flex-wrap: wrap;">
+                    <div *ngFor="let todo of todoList"
+                        style="background-color: #F4F4DC;padding: 12px; margin-right: 10px;">
+                        <label for="file">{{todo?.technologies | titlecase}}</label><br>
+                        <progress style="border-radius: 0%;" id="file" value={{todo.skillLevel}} max="10">
+                            {{todo?.skillLevel * 10}}% </progress>
+                    </div>
+
+                </div>
+            </td>
+            <td style="width:50%">
+                <div style="display: flex;flex-wrap: wrap;">
+                    <div *ngFor="let todo of todoList"
+                        style="background-color: #F4F4DC; padding: 15px;margin-right: 10px;">
+                        <button
+                            style="background:cyan;border-radius: 10px;padding: 10px;">{{todo?.technologies
+                            | titlecase}}</button>
+                    </div>
+
+                </div>
+            </td>
+
+        </tr>
+        
+    </table>
+    <button style="text-align: center; background:cyan;cursor:pointer;border-radius: 10px;padding: 10px;">Add Skill</button>
+</body>
+
+</html>
